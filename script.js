@@ -16,9 +16,41 @@ voiceSelect.addEventListener("change", ()=>{
 
 
 
+
+//toast
+let toastBox=document.querySelector('.toastbox');
+function showToast(){
+    let toast=document.createElement("div");
+    toast.classList.add("toast");
+    toastBox.appendChild(toast);
+    toast.innerHTML="Write Something bro...";
+    setTimeout(()=>{
+        toast.remove()
+    },4000)
+}
+//toast
+
+let textArea=document.querySelector("textarea");
+
 document.querySelector("button").addEventListener('click',()=>{
-    speech.text=document.querySelector('textarea').value;
-    window.speechSynthesis.speak(speech);
+    if(textArea.value===''){
+console.log('empty');
+showToast()
+    }else{
+        console.log('not empty');
+        speech.text=document.querySelector('textarea').value;
+        window.speechSynthesis.speak(speech);
+    }
+
 }
 
 ) 
+
+
+
+
+
+
+
+
+
